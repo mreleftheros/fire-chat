@@ -2,35 +2,72 @@
 @import "defaults";
 
 .header {
+  background: rgb(189, 189, 189);
   
   &__nav {
+    min-height: 15vh;
+    padding: 1rem;
+    display: flex;
+    height: 100%;
 
-    &__logo {
-      padding: .5rem;
-      width: 10rem;
-      height: 10rem;
-      background: rgba(153, 2, 2, 0.4);
-      border-radius: 50%;
-      display: flex;
+    &__logo-container {
+      display: none;
+      flex: 1;
       justify-content: center;
       align-items: center;
-      position: relative;
-      overflow: hidden;
-      box-shadow: 5px 5px 10px gray;
+      background: blue;
 
-      &__img {
-        position: absolute;
-        top: -30%;
+      &__logo {
+        width: 8rem;
+        height: 8rem;
+        background: rgb(153, 2, 2);
+        border-radius: 50%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        position: relative;
+        overflow: hidden;
+        box-shadow: 5px 5px 10px gray;
+  
+        &__img {
+          position: absolute;
+          top: -30%;
+        }
+        
+        &__text {
+          font-size: 2.5rem;
+          font-family: 'Pacifico', cursive;
+          color: rgba(255, 255, 255, 1);
+          position: absolute;
+          top: 50%;
+          z-index: 1;
+          text-shadow: 1px 1px 2px #000;
+        }
       }
-      
-      &__text {
-        font-size: 3rem;
-        font-family: 'Pacifico', cursive;
-        color: rgba(255, 255, 255, 1);
-        position: absolute;
-        top: 50%;
-        z-index: 1;
-        text-shadow: 1px 1px 2px #000;
+    }
+
+    &__menu {
+      flex: 3;
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-around;
+      align-items: center;
+
+      &__item {
+        margin: 1rem;
+        
+        &__link {
+          text-decoration: none;
+          display: block;
+          color: rgba(255, 255, 255, .5);
+          text-shadow: 1px 1px 3px #000;
+          font-size: 2rem;
+
+          &:hover {
+            color: rgb(255, 90, 90);
+          }
+        }
       }
     }
   }
