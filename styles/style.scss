@@ -1,2 +1,37 @@
+@import "fonts";
 @import "defaults";
 
+.header {
+  
+  &__nav {
+
+    &__logo {
+      padding: .5rem;
+      width: 10rem;
+      height: 10rem;
+      background: rgba(153, 2, 2, 0.4);
+      border-radius: 50%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      position: relative;
+      overflow: hidden;
+      box-shadow: 5px 5px 10px gray;
+
+      &__img {
+        position: absolute;
+        top: -30%;
+      }
+      
+      &__text {
+        font-size: 3rem;
+        font-family: 'Pacifico', cursive;
+        color: rgba(255, 255, 255, 1);
+        position: absolute;
+        top: 50%;
+        z-index: 1;
+        text-shadow: 1px 1px 2px #000;
+      }
+    }
+  }
+}
