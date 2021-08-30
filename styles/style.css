@@ -17,7 +17,7 @@ body {
 }
 
 .header {
-  background: #00ffdd;
+  background: #00aeff;
   min-height: 10vh;
 }
 .header__nav {
@@ -36,10 +36,10 @@ body {
   }
 }
 .header__nav__logo-container__logo {
-  border: solid rgba(0, 0, 0, 0.2);
+  border: 1px solid rgba(0, 0, 0, 0.2);
   width: 6rem;
   height: 6rem;
-  background: #ad5b5b;
+  background: #fc94d1;
   border-radius: 50%;
   display: flex;
   justify-content: center;
@@ -86,7 +86,6 @@ body {
 }
 .header__nav__menu__item__link {
   padding: 1rem;
-  background: blue;
   display: flex;
   justify-content: center;
   align-items: center;
