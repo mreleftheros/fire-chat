@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Fire Chat</title>
+  <link rel="stylesheet" href="./assets/css/style.css">
+</head>
+<body>
+
+  <!-- HEADER -->
+  <header class="header">
+    <nav class="header__nav">
+      <!-- Logo -->
+      <div class="header__nav__logo-container">
+        <div class="header__nav__logo-container__logo">
+          <img class="header__nav__logo-container__logo__img" src="./assets/fire.svg" alt="fire-logo">
+          <span class="header__nav__logo-container__logo__text">Chat</span>
+        </div>
+      </div>
+
+      <!-- Menu -->
+      <ul class="header__nav__menu">
+        <li class="header__nav__menu__item logout">
+          <a href="#" class="header__nav__menu__item__link">Sign Up</a>
+        </li>
+        <li class="header__nav__menu__item logout">
+          <a href="#" class="header__nav__menu__item__link">Login</a>
+        </li>
+        <li class="header__nav__menu__item login">
+          <a href="#" class="header__nav__menu__item__link">Account</a>
+        </li>
+        <li class="header__nav__menu__item login">
+          <a href="#" class="header__nav__menu__item__link">Logout</a>
+        </li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- MAIN -->
+  <main class="main"></main>
+
+
+  <script type="module">
+    import { } from 'https://www.gstatic.com/firebasejs/9.0.0/firebase-app.js';
+    import { } from "https://www.gstatic.com/firebasejs/9.0.0/firebase-firestore.js";
+    import { } from "https://www.gstatic.com/firebasejs/9.0.0/firebase-auth.js";
+
+    // const app = initializeApp(firebaseConfig);
+    const db = firebase.firestore()
+    // const auth = getAuth();
+  </script>
+  <script src="./assets/js/bundle.js"></script>
+</body>
+</html>
