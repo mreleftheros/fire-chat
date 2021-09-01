@@ -3,7 +3,7 @@
 @import "defaults";
 
 .header {
-  background: rgb(0, 174, 255);
+  background: #8000ff;
   min-height: 10vh;
   
   &__nav {
@@ -24,7 +24,7 @@
         border: 1px solid rgba(0, 0, 0, .2);
         width: 6rem;
         height: 6rem;
-        background: rgb(252, 148, 209);
+        background: #fcf194;
         border-radius: 50%;
         display: flex;
         justify-content: center;
