@@ -17,7 +17,7 @@ body {
 }
 
 .header {
-  background: #00aeff;
+  background: #8000ff;
   min-height: 10vh;
 }
 .header__nav {
@@ -39,7 +39,7 @@ body {
   border: 1px solid rgba(0, 0, 0, 0.2);
   width: 6rem;
   height: 6rem;
-  background: #fc94d1;
+  background: #fcf194;
   border-radius: 50%;
   display: flex;
   justify-content: center;
