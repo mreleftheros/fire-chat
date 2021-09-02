@@ -46,7 +46,7 @@ body {
   align-items: center;
   position: relative;
   overflow: hidden;
-  box-shadow: 2px 2px 5px #ff9100;
+  box-shadow: 1px 1px 3px #383838;
 }
 .header__nav__logo-container__logo__img {
   position: absolute;

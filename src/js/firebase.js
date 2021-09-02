@@ -10,8 +10,7 @@ const firebaseApp = initializeApp({
   messagingSenderId: "468446489307",
   appId: "1:468446489307:web:6ae0817776a98cb5a2bafe",
   measurementId: "G-MX6V5M5J1B"
-})
-
+});
 const db = getFirestore(firebaseApp);
 const auth = getAuth(firebaseApp);
 
