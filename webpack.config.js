@@ -1,11 +1,11 @@
 const path = require("path");
 
 module.exports = {
-  entry: "./src/js/index.js",
+  entry: ['babel-regenerator-runtime', './src/js/index.js'],
   output: {
     path: path.resolve(__dirname, "dist"),
     publicPath: "/assets/",
-    filename: "./js/bundle.js"
+    filename: "./bundle.js"
   },
   devServer: {
     static: {
