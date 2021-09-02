@@ -1,6 +1,6 @@
 import { initializeApp } from "firebase/app";
-import { getFirestore, collection, getDocs, getDoc } from "firebase/firestore";
-import { getAuth } from "firebase/auth";
+import { getFirestore, collection, getDocs, getDoc, setDoc, doc } from "firebase/firestore";
+import { getAuth, onAuthStateChanged } from "firebase/auth";
 
 const firebaseApp = initializeApp({
   apiKey: "AIzaSyDXTp9IAyK9WV8yc9pmHsCF1eh9iaBmIM0",
@@ -15,10 +15,14 @@ const firebaseApp = initializeApp({
 const db = getFirestore(firebaseApp);
 const auth = getAuth(firebaseApp);
 
-const output = async () => {
-  const usersRef = collection(db,"users");
-  const snapshot = await getDocs(usersRef);
-  console.log(snapshot.docs[0].data())
-}
+const checkAuthentication = async () => {
+  onAuthStateChanged(auth, user => {
+    if (user) {
+      console.log("logged in");
+    } else {
+      console.log("logged out");
+    }
+  })
+};
 
-export { output as default };
+export { checkAuthentication };

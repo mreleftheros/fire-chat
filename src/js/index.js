@@ -1,3 +1,3 @@
-import output from "./firebase.js";
+import { checkAuthentication } from "./firebase";
 
-output();
+checkAuthentication();
