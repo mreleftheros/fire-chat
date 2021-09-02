@@ -2,23 +2,22 @@
 @import "mixins";
 @import "defaults";
 
+// HEADER
 .header {
-  background: #8000ff;
-  min-height: 10vh;
+  min-height: 15vh;
   
   &__nav {
     display: flex;
-
+    height: 100%;
+    position: relative;
+    background: #8000ff;
+    
     &__logo-container {
       padding: 1rem 0;
-      display: none;
+      display: flex;
       flex: 1;
       justify-content: center;
       align-items: center;
-
-      @include mq(768px) {
-        display: flex;
-      }
 
       &__logo {
         border: 1px solid rgba(0, 0, 0, .2);
@@ -53,7 +52,7 @@
     &__menu {
       flex: 3;
       list-style: none;
-      display: flex;
+      display: none;
       flex-direction: column;
       justify-content: space-around;
 
@@ -92,5 +91,71 @@
         }
       }
     }
+
+    &__hamburger {
+      position: absolute;
+      top: 50%;
+      left: 90%;
+      transform: translate(-50%, -80%);
+      padding: .3rem;
+      background: #000;
+      border-radius: .2rem;
+      height: 4rem;
+      width: 5rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-around;
+      cursor: pointer;
+
+      @include mq(768px) {
+        display: none;
+      }
+      
+      &__line {
+        border-radius: .5rem;
+        height: .4rem;
+        display: block;
+        background: #fff;
+      }
+    }
+  }
+}
+
+// MAIN
+.main {
+  min-height: 80vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  &__cta {
+    display: flex;
+    flex-direction: column;
+    font-size: 2.5rem;
+    letter-spacing: .1rem;
+    text-transform: capitalize;
+
+    @include mq(768px) {
+      font-size: 4rem;
+    }
+  }
+}
+
+// FOOTER
+.footer {
+  min-height: 5vh;
+  background: #000;
+  display: none;
+  justify-content: center;
+  align-items: center;
+
+  @include mq(768px) {
+    display: flex;
+  }
+
+  &__copyright {
+    font-size: 1.5rem;
+    color: #fff;
+    font-style: italic;
   }
 }
