@@ -58,16 +58,27 @@ body {
   z-index: 1;
   text-shadow: 1px 1px 2px #000;
 }
+.header__nav__menu.open {
+  display: flex;
+}
 .header__nav__menu {
   flex: 3;
   list-style: none;
   display: none;
   flex-direction: column;
   justify-content: space-around;
+  background: #000;
+  position: absolute;
+  width: 100%;
+  top: 100%;
+  z-index: 1;
+  left: 50%;
+  transform: translate(-50%);
 }
 @media only screen and (min-width: 768px) {
   .header__nav__menu {
     flex-direction: row;
+    position: static;
   }
   .header__nav__menu__item {
     margin: 0 1rem;
@@ -95,11 +106,22 @@ body {
 .header__nav__menu__item__link:hover {
   background-color: #5200a5;
 }
+.header__nav__hamburger.open .header__nav__hamburger__line:first-of-type {
+  transform-origin: 0% 0%;
+  transform: rotate(38deg) translate(2px, -3px) scale(1.2);
+}
+.header__nav__hamburger.open .header__nav__hamburger__line:nth-of-type(2) {
+  opacity: 0;
+}
+.header__nav__hamburger.open .header__nav__hamburger__line:last-of-type {
+  transform-origin: 0% 100%;
+  transform: rotate(-38deg) translate(2px, 3px) scale(1.2);
+}
 .header__nav__hamburger {
   position: absolute;
   top: 50%;
   left: 90%;
-  transform: translate(-50%, -80%);
+  transform: translate(-50%, -70%);
   padding: 0.3rem;
   background: #000;
   border-radius: 0.2rem;
@@ -107,7 +129,7 @@ body {
   width: 5rem;
   display: flex;
   flex-direction: column;
-  justify-content: space-around;
+  justify-content: space-between;
   cursor: pointer;
 }
 @media only screen and (min-width: 768px) {
@@ -120,6 +142,7 @@ body {
   height: 0.4rem;
   display: block;
   background: #fff;
+  transition: all 0.3s ease;
 }
 
 .main {
