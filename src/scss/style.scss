@@ -31,7 +31,7 @@
         align-items: center;
         position: relative;
         overflow: hidden;
-        box-shadow: 5px 5px 10px gray;
+        box-shadow: 2px 2px 5px rgb(255, 145, 0);
   
         &__img {
           position: absolute;
@@ -84,10 +84,10 @@
           color: rgba(255, 255, 255);
           text-shadow: 1px 1px 3px #000;
           font-size: 2rem;
-          transition: background .3s ease-out;
+          transition: background .1s ease-in-out;
 
           &:hover {
-            background-color: rgb(1, 101, 148);;
+            background-color: rgb(82, 0, 165);
           }
         }
       }
