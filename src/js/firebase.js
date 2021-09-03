@@ -1,6 +1,6 @@
 import { initializeApp } from "firebase/app";
 import { getFirestore, collection, getDocs, getDoc, setDoc, doc } from "firebase/firestore";
-import { getAuth, onAuthStateChanged, createUserWithEmailAndPassword, signInWithEmailAndPassword } from "firebase/auth";
+import { getAuth, onAuthStateChanged, createUserWithEmailAndPassword, signInWithEmailAndPassword, signOut } from "firebase/auth";
 import { updateMenuUI } from "./ui";
 
 const firebaseApp = initializeApp({
@@ -35,10 +35,18 @@ const createUser = async (email, password) => {
     .catch(err => console.log(err))
 };
 
+// function that takes email and password given and logins user
 const loginUser = async (email, password) => {
   signInWithEmailAndPassword(auth, email, password)
     .then(cred => console.log(cred))
     .catch(err => console.log(err))
 };
 
-export { checkAuthentication, createUser };
+// function that logouts user
+const logoutUser = async () => {
+  signOut(auth)
+    .then(() => console.log("User logged out."))
+    .catch(err => console.log(err))
+};
+
+export { checkAuthentication, createUser, loginUser, logoutUser };

@@ -1,4 +1,4 @@
-import { checkAuthentication, createUser } from "./firebase";
+import { checkAuthentication, createUser, loginUser, logoutUser } from "./firebase";
 
 // global variables
 const hamburger = document.getElementById("hamburger");
@@ -32,6 +32,10 @@ const handleMenuClick = e => {
 
   if (e.target.classList.contains("login")) {
     loginFormWrapper.classList.add("open");
+  }
+
+  if (e.target.classList.contains("logout")) {
+    logoutUser()
   }
 };
 
