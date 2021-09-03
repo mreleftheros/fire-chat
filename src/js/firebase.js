@@ -1,6 +1,6 @@
 import { initializeApp } from "firebase/app";
 import { getFirestore, collection, getDocs, getDoc, setDoc, doc } from "firebase/firestore";
-import { getAuth, onAuthStateChanged, createUserWithEmailAndPassword } from "firebase/auth";
+import { getAuth, onAuthStateChanged, createUserWithEmailAndPassword, signInWithEmailAndPassword } from "firebase/auth";
 
 const firebaseApp = initializeApp({
   apiKey: "AIzaSyDXTp9IAyK9WV8yc9pmHsCF1eh9iaBmIM0",
@@ -25,8 +25,15 @@ const checkAuthentication = () => {
   })
 };
 
+// function that takes email and password given and creates new user
 const createUser = async (email, password) => {
   createUserWithEmailAndPassword(auth, email, password)
+    .then(cred => console.log(cred))
+    .catch(err => console.log(err))
+}
+
+const loginUser = async (email, password) => {
+  signInWithEmailAndPassword(auth, email, password)
     .then(cred => console.log(cred))
     .catch(err => console.log(err))
 }

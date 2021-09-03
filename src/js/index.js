@@ -48,6 +48,19 @@ const submitSignUpForm = async e => {
       e.currentTarget.reset();
       e.currentTarget.parentElement.classList.remove("open");
     })
+};
+
+const submitLoginForm = e => {
+  e.preventDefault();
+
+  let email = e.currentTarget.email.value;
+  let password = e.currentTarget.password.value;
+
+  loginUser(email, password)
+    .then(() => {
+      e.currentTarget.reset();
+      e.currentTarget.parentElement.classList.remove("open");
+    })
 }
 
 // event listeners
@@ -55,6 +68,7 @@ document.addEventListener("DOMContentLoaded", init);
 hamburger.addEventListener("click", toggleMenu);
 menu.addEventListener("click", handleMenuClick);
 signUpForm.addEventListener("submit", submitSignUpForm);
+loginForm.addEventListener("submit", submitLoginForm);
 signUpFormClose.addEventListener("click", e => {
   e.currentTarget.parentElement.classList.remove("open");
 })
