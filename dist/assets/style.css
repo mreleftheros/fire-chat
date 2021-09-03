@@ -55,7 +55,7 @@ body {
   border-radius: 0.5rem;
   border: none;
   outline: none;
-  border-bottom: #019efd solid;
+  border-bottom: #00a58e solid;
   text-align: center;
   padding: 0.5rem;
   margin-bottom: 1rem;
@@ -203,7 +203,7 @@ body {
   margin-left: 0.5rem;
   font-weight: bold;
   font-size: 3rem;
-  color: #5200a5;
+  color: #00a58e;
 }
 .header__nav__hamburger.open .header__nav__hamburger__line:first-of-type {
   transform-origin: 0% 0%;
