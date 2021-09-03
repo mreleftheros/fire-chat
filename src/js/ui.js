@@ -1,3 +1,4 @@
+// function that updates the menu items displayed depending on if the user is logged in or logged out
 const updateMenuUI = login => {
   const menu = document.getElementById("menu");
   let children = menu.children;

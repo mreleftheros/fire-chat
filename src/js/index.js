@@ -35,7 +35,7 @@ const handleMenuClick = e => {
   }
 
   if (e.target.classList.contains("logout")) {
-    logoutUser()
+    logoutUser();
   }
 };
 

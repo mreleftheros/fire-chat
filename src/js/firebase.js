@@ -19,10 +19,10 @@ const auth = getAuth(firebaseApp);
 const checkAuthentication = () => {
   onAuthStateChanged(auth, user => {
     if (user) {
-      console.log("logged in");
+      console.log("logged in.");
       updateMenuUI("login");
     } else {
-      console.log("logged out");
+      console.log("logged out.");
       updateMenuUI();
     }
   })
@@ -38,7 +38,7 @@ const createUser = async (email, password) => {
 // function that takes email and password given and logins user
 const loginUser = async (email, password) => {
   signInWithEmailAndPassword(auth, email, password)
-    .then(cred => console.log(cred))
+    .then(cred => console.log(cred.user))
     .catch(err => console.log(err))
 };
 
