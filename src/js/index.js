@@ -1,5 +1,4 @@
 import { checkAuthentication, createUser } from "./firebase";
-import { updateMenuUI } from "./ui";
 
 // global variables
 const hamburger = document.getElementById("hamburger");
