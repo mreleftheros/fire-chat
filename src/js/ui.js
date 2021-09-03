@@ -1,9 +1,9 @@
 // function that updates the menu items displayed depending on if the user is logged in or logged out
-const updateMenuUI = login => {
+const updateMenuUI = loginState => {
   const menu = document.getElementById("menu");
   let children = menu.children;
 
-  if (login) {
+  if (loginState === "login") {
     for (let child of children) {
       if (child.classList.contains("login")) {
         child.style.display = "flex";
@@ -13,7 +13,7 @@ const updateMenuUI = login => {
       }
     }
   }
-  else {
+  else if (loginState === "logout") {
     for (let child of children) {
       if (child.classList.contains("logout")) {
         child.style.display = "flex";
@@ -25,4 +25,10 @@ const updateMenuUI = login => {
   }
 };
 
-export { updateMenuUI };
+const updateDisplayName = name => {
+  const displayName = document.getElementById("displayName");
+
+  displayName.textContent = `Logged in as: ${name}`;
+};
+
+export { updateMenuUI, updateDisplayName };
