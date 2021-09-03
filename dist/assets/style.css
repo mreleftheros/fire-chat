@@ -24,7 +24,7 @@ body {
   display: none;
   background: white;
   position: absolute;
-  z-index: 2;
+  z-index: 4;
   width: 100%;
   max-width: 40rem;
   top: 50%;
