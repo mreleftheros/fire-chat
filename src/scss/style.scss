@@ -88,6 +88,10 @@
           &__link {
             width: 100%;
             height: 100%;
+
+            &__name {
+              font-size: 4rem;
+            }
           }
         }
 
@@ -108,8 +112,17 @@
           font-size: 2rem;
           transition: background .1s ease-in-out;
 
-          &:hover {
+          &:hover:not(#displayName) {
             background-color: rgb(82, 0, 165);
+          }
+
+          &__name {
+            display: inline-block;
+            letter-spacing: .1rem;
+            margin-left: .5rem;
+            font-weight: bold;
+            font-size: 3rem;
+            color: rgb(82, 0, 165);
           }
         }
       }

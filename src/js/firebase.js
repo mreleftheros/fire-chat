@@ -1,8 +1,7 @@
 import { initializeApp } from "firebase/app";
 import { getFirestore, collection, getDocs, getDoc, setDoc, doc } from "firebase/firestore";
-import { getAuth, onAuthStateChanged, createUserWithEmailAndPassword, signInWithEmailAndPassword, signOut } from "firebase/auth";
-import { updateMenuUI } from "./ui";
-import { updateDisplayName } from "./ui";
+import { getAuth, onAuthStateChanged, createUserWithEmailAndPassword, signInWithEmailAndPassword, signOut, updateProfile } from "firebase/auth";
+import { updateMenuUI, updateDisplayNameUI } from "./ui";
 
 const firebaseApp = initializeApp({
   apiKey: "AIzaSyDXTp9IAyK9WV8yc9pmHsCF1eh9iaBmIM0",
@@ -20,10 +19,9 @@ const auth = getAuth(firebaseApp);
 const checkAuthentication = () => {
   onAuthStateChanged(auth, user => {
     if (user) {
-      console.log(user)
       console.log("auth:logged in.");
       updateMenuUI("login");
-      updateDisplayName(user.displayName)
+      updateDisplayNameUI(user.displayName)
     } else {
       console.log("auth:logged out.");
       updateMenuUI("logout");
@@ -35,8 +33,7 @@ const checkAuthentication = () => {
 const signUpUser = async (email, password, displayName) => {
   createUserWithEmailAndPassword(auth, email, password)
     .then(cred => {
-      cred.user.displayName = displayName;
-      console.log(cred.user)
+      return updateProfile(auth.currentUser, {displayName: displayName})
     })
     .catch(err => console.log(err))
 };

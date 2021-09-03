@@ -25,10 +25,11 @@ const updateMenuUI = loginState => {
   }
 };
 
-const updateDisplayName = name => {
+// function that takes the user displayName and outputs it in the DOM
+const updateDisplayNameUI = name => {
   const displayName = document.getElementById("displayName");
 
-  displayName.textContent = `Logged in as: ${name}`;
+  displayName.innerHTML = `Logged in as: <span class="header__nav__menu__item__link__name">${name}</span>`;
 };
 
-export { updateMenuUI, updateDisplayName };
+export { updateMenuUI, updateDisplayNameUI };

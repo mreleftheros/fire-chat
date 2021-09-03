@@ -52,6 +52,8 @@ const submitSignUpForm = async e => {
   let email = e.currentTarget.email.value;
   let password = e.currentTarget.password.value;
 
+  if (!displayName || !email || !password) return;
+
   signUpUser(email, password, displayName)
     .then(() => {
       e.currentTarget.reset();
