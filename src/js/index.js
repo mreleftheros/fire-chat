@@ -1,4 +1,4 @@
-import { checkAuthentication } from "./firebase";
+import { checkAuthentication, createUser } from "./firebase";
 
 // global variables
 const hamburger = document.getElementById("hamburger");
@@ -17,6 +17,7 @@ const toggleMenu = e => {
   menu.classList.toggle("open");
 };
 
+// function that opens clicked menu item from menu
 const handleMenuClick = e => {
   if (!e.target.tagName === "A") return; // check for link tag
 
@@ -28,9 +29,19 @@ const handleMenuClick = e => {
   }
 };
 
-// function that handles sign up form
-const submitSignUpForm = e => {
+// function that submits sign up form
+const submitSignUpForm = async e => {
+  e.preventDefault();
 
+  let username = e.currentTarget.username.value.trim();
+  let email = e.currentTarget.email.value;
+  let password = e.currentTarget.password.value;
+
+  createUser(email, password)
+    .then(() => {
+      e.currentTarget.reset();
+      e.currentTarget.parentElement.classList.remove("open");
+    })
 }
 
 // event listeners
