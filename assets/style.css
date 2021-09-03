@@ -76,6 +76,7 @@ body {
   background: #9533f7;
 }
 .form-wrapper__close {
+  display: block;
   color: #9e0000;
   background: transparent;
   padding: 0.3rem 0.5rem;
