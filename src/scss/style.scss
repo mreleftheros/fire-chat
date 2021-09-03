@@ -6,7 +6,7 @@
 // HEADER
 .header {
   min-height: 15vh;
-  
+
   &__nav {
     display: flex;
     height: 100%;
@@ -52,14 +52,6 @@
 
     &__menu.open {
       display: flex;
-    }
-
-    &__menu {
-      flex: 3;
-      list-style: none;
-      display: none;
-      flex-direction: column;
-      justify-content: space-around;
       background: rgba(0, 0, 0, .8);
       position: absolute;
       width: 100%;
@@ -67,6 +59,22 @@
       z-index: 3;
       left: 50%;
       transform: translate(-50%);
+
+      @include mq(768px) {
+        background: transparent;
+        position: relative;
+        top: 0;
+        left: 0;
+        transform: translate(0);
+      }
+    }
+
+    &__menu {
+      flex: 3;
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-around;
 
       @include mq(768px) {
         flex-direction: row;

@@ -11,4 +11,12 @@ const toggleMenu = e => {
   menu.classList.toggle("open");
 };
 
+// function that calls initialized functions
+const init = () => {
+  checkAuthentication();
+};
+
+
+// event listeners
 hamburger.addEventListener("click", toggleMenu);
+document.addEventListener("DOMContentLoaded", init);

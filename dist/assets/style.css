@@ -136,13 +136,6 @@ body {
 }
 .header__nav__menu.open {
   display: flex;
-}
-.header__nav__menu {
-  flex: 3;
-  list-style: none;
-  display: none;
-  flex-direction: column;
-  justify-content: space-around;
   background: rgba(0, 0, 0, 0.8);
   position: absolute;
   width: 100%;
@@ -150,6 +143,22 @@ body {
   z-index: 3;
   left: 50%;
   transform: translate(-50%);
+}
+@media only screen and (min-width: 768px) {
+  .header__nav__menu.open {
+    background: transparent;
+    position: relative;
+    top: 0;
+    left: 0;
+    transform: translate(0);
+  }
+}
+.header__nav__menu {
+  flex: 3;
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
 }
 @media only screen and (min-width: 768px) {
   .header__nav__menu {
