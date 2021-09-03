@@ -29,9 +29,12 @@ const checkAuthentication = () => {
 };
 
 // function that takes email and password given and creates new user
-const createUser = async (email, password) => {
+const signUpUser = async (email, password, displayName) => {
   createUserWithEmailAndPassword(auth, email, password)
-    .then(cred => console.log(cred))
+    .then(cred => {
+      cred.user.displayName = displayName;
+      console.log(cred.user)
+    })
     .catch(err => console.log(err))
 };
 
@@ -49,4 +52,4 @@ const logoutUser = async () => {
     .catch(err => console.log(err))
 };
 
-export { checkAuthentication, createUser, loginUser, logoutUser };
+export { checkAuthentication, signUpUser, loginUser, logoutUser };

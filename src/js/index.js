@@ -1,4 +1,4 @@
-import { checkAuthentication, createUser, loginUser, logoutUser } from "./firebase";
+import { checkAuthentication, signUpUser, loginUser, logoutUser } from "./firebase";
 
 // global variables
 const hamburger = document.getElementById("hamburger");
@@ -48,11 +48,11 @@ const closeForm = e => {
 const submitSignUpForm = async e => {
   e.preventDefault();
 
-  let username = e.currentTarget.username.value.trim();
+  let displayName = e.currentTarget.displayName.value.trim();
   let email = e.currentTarget.email.value;
   let password = e.currentTarget.password.value;
 
-  createUser(email, password)
+  signUpUser(email, password, displayName)
     .then(() => {
       e.currentTarget.reset();
       closeForm(e);
