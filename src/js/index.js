@@ -35,6 +35,11 @@ const handleMenuClick = e => {
   }
 };
 
+// function that closes form wrapper
+const closeForm = e => {
+  e.currentTarget.parentElement.classList.remove("open");
+};
+
 // function that submits sign up form
 const submitSignUpForm = async e => {
   e.preventDefault();
@@ -50,6 +55,7 @@ const submitSignUpForm = async e => {
     })
 };
 
+// function that submits login form
 const submitLoginForm = e => {
   e.preventDefault();
 
@@ -61,7 +67,7 @@ const submitLoginForm = e => {
       e.currentTarget.reset();
       e.currentTarget.parentElement.classList.remove("open");
     })
-}
+};
 
 // event listeners
 document.addEventListener("DOMContentLoaded", init);
@@ -69,9 +75,5 @@ hamburger.addEventListener("click", toggleMenu);
 menu.addEventListener("click", handleMenuClick);
 signUpForm.addEventListener("submit", submitSignUpForm);
 loginForm.addEventListener("submit", submitLoginForm);
-signUpFormClose.addEventListener("click", e => {
-  e.currentTarget.parentElement.classList.remove("open");
-})
-loginFormClose.addEventListener("click", e => {
-  e.currentTarget.parentElement.classList.remove("open");
-})
+signUpFormClose.addEventListener("click", closeForm);
+loginFormClose.addEventListener("click", closeForm);
