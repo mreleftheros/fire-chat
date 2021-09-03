@@ -1,4 +1,5 @@
 import { checkAuthentication, createUser } from "./firebase";
+import { updateMenuUI } from "./ui";
 
 // global variables
 const hamburger = document.getElementById("hamburger");
@@ -51,7 +52,7 @@ const submitSignUpForm = async e => {
   createUser(email, password)
     .then(() => {
       e.currentTarget.reset();
-      e.currentTarget.parentElement.classList.remove("open");
+      closeForm(e);
     })
 };
 
@@ -65,7 +66,7 @@ const submitLoginForm = e => {
   loginUser(email, password)
     .then(() => {
       e.currentTarget.reset();
-      e.currentTarget.parentElement.classList.remove("open");
+      closeForm(e);
     })
 };
 
