@@ -5,7 +5,8 @@ const hamburger = document.getElementById("hamburger");
 const menu = document.getElementById("menu");
 const signUpForm = document.getElementById("signUpForm");
 const loginForm = document.getElementById("loginForm");
-const formCloseBtn = document.getElementById("formCloseBtn");
+const signUpFormClose = document.getElementById("signUpFormClose");
+const loginFormClose = document.getElementById("loginFormClose");
 
 // function that calls initialized functions
 const init = () => {
@@ -27,6 +28,10 @@ const handleMenuClick = e => {
 
   if (e.target.classList.contains("sign-up")) {
     signUpFormWrapper.classList.add("open");
+  }
+
+  if (e.target.classList.contains("login")) {
+    loginFormWrapper.classList.add("open");
   }
 };
 
@@ -50,6 +55,9 @@ document.addEventListener("DOMContentLoaded", init);
 hamburger.addEventListener("click", toggleMenu);
 menu.addEventListener("click", handleMenuClick);
 signUpForm.addEventListener("submit", submitSignUpForm);
-formCloseBtn.addEventListener("click", e => {
+signUpFormClose.addEventListener("click", e => {
+  e.currentTarget.parentElement.classList.remove("open");
+})
+loginFormClose.addEventListener("click", e => {
   e.currentTarget.parentElement.classList.remove("open");
 })
