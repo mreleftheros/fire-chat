@@ -5,6 +5,7 @@ const hamburger = document.getElementById("hamburger");
 const menu = document.getElementById("menu");
 const signUpForm = document.getElementById("signUpForm");
 const loginForm = document.getElementById("loginForm");
+const formCloseBtn = document.getElementById("formCloseBtn");
 
 // function that calls initialized functions
 const init = () => {
@@ -49,3 +50,6 @@ document.addEventListener("DOMContentLoaded", init);
 hamburger.addEventListener("click", toggleMenu);
 menu.addEventListener("click", handleMenuClick);
 signUpForm.addEventListener("submit", submitSignUpForm);
+formCloseBtn.addEventListener("click", e => {
+  e.currentTarget.parentElement.classList.remove("open");
+})
