@@ -1,9 +1,9 @@
 class Chat {
-  constructor(name, chatroom, message, timestamp) {
+  constructor(name, chatroom, message, time) {
     this.name = name;
     this.chatroom = chatroom;
     this.message = message;
-    this.timestamp =timestamp;
+    this.time =time;
   }
 
 

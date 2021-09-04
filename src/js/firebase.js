@@ -40,11 +40,9 @@ const logoutUser = async () => {
 
 // FIRESTORE
 
-const addMessage = async message => {
-  console.log(auth.currentUser)
-  // addDoc(collection(db, "messages"), {
-
-  // })
+const addMessage = async chat => {
+  addDoc(collection(db, "messages"), chat)
+    .catch(err => console.log(err));
 };
 
 export { auth, onAuthStateChanged, signUpUser, loginUser, logoutUser, updateProfile, addMessage };

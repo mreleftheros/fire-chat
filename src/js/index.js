@@ -1,5 +1,6 @@
 import { auth, onAuthStateChanged, signUpUser, loginUser, logoutUser, addMessage } from "./firebase";
 import { updateMenuUI, updateDisplayNameUI } from "./ui";
+import Chat from "./chat";
 
 // global variables
 const hamburger = document.getElementById("hamburger");
@@ -9,6 +10,7 @@ const loginForm = document.getElementById("loginForm");
 const signUpFormClose = document.getElementById("signUpFormClose");
 const loginFormClose = document.getElementById("loginFormClose");
 const chatForm = document.getElementById("chatForm");
+
 
 // function that sets a real time listener for auth state change
 const checkAuthentication = () => {
@@ -94,13 +96,15 @@ const submitLoginForm = e => {
     })
 };
 
-// function that submits the chat form and adds the message to database
+// function that submits the chat form and adds the message to the database
 const submitChatForm = e => {
   e.preventDefault();
 
   let message = e.currentTarget.message.value.trim();
 
   if(message.length === 0) return; // check
+
+  const chat = new Chat(auth.currentUser.displayName, "general", message, new Date())
 
   addMessage(message)
     .then(e.currentTarget.reset())
