@@ -99,6 +99,7 @@ body {
 }
 .header__nav {
   display: flex;
+  height: 100%;
   position: relative;
 }
 .header__nav__logo-container {
@@ -191,10 +192,10 @@ body {
   color: white;
   text-shadow: 1px 1px 3px #000;
   font-size: 2rem;
-  transition: background 0.1s ease-in-out;
+  transition: color 0.3s ease-in-out;
 }
 .header__nav__menu__item__link:hover:not(#displayName) {
-  background-color: #5200a5;
+  color: #5200a5;
 }
 .header__nav__menu__item__link__name {
   display: inline-block;
