@@ -104,9 +104,10 @@ const submitChatForm = e => {
 
   if(message.length === 0) return; // check
 
-  const chat = new Chat(auth.currentUser.displayName, "general", message, new Date())
+  let chatroom = "general";
+  let name = auth.currentUser.displayName;
 
-  addMessage(message)
+  addMessage(name, chatroom, message)
     .then(e.currentTarget.reset())
     .catch(err => console.log(err));
 };

@@ -1,5 +1,5 @@
 import { initializeApp } from "firebase/app";
-import { getFirestore, collection, addDoc } from "firebase/firestore";
+import { getFirestore, collection, addDoc, Timestamp } from "firebase/firestore";
 import { getAuth, onAuthStateChanged, createUserWithEmailAndPassword, signInWithEmailAndPassword, signOut, updateProfile } from "firebase/auth";
 
 const firebaseApp = initializeApp({
@@ -40,8 +40,14 @@ const logoutUser = async () => {
 
 // FIRESTORE
 
-const addMessage = async chat => {
-  addDoc(collection(db, "messages"), chat)
+const addMessage = async (name, chatroom, message) => {
+  let time = Timestamp.fromDate(new Date());
+  await addDoc(collection(db, "messages"), {
+    name,
+    chatroom,
+    message,
+    time
+  })
     .catch(err => console.log(err));
 };
 
