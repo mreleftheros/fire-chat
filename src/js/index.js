@@ -9,6 +9,8 @@ const loginForm = document.getElementById("loginForm");
 const signUpFormClose = document.getElementById("signUpFormClose");
 const loginFormClose = document.getElementById("loginFormClose");
 const chatForm = document.getElementById("chatForm");
+const chatrooms = document.getElementById("chatrooms");
+let selectedChatroom = "general";
 
 
 // function that sets a real time listener for auth state change
@@ -103,12 +105,25 @@ const submitChatForm = e => {
 
   if(message.length === 0) return; // check
 
-  let chatroom = "general";
+  let chatroom = selectChatroom;
   let name = auth.currentUser.displayName;
 
   addMessage(name, chatroom, message)
     .then(e.currentTarget.reset())
     .catch(err => console.log(err));
+};
+
+const selectChatroom = e => {
+  if (e.target.tagName !== "BUTTON") return; // check
+
+  for (let child of chatrooms.children) {
+    if (child.classList.contains("select")) {
+      child.classList.remove("select");
+    }
+  }
+
+  selectedChatroom = e.target.innerText;
+  e.target.classList.add("select");
 };
 
 // event listeners
@@ -120,3 +135,4 @@ loginForm.addEventListener("submit", submitLoginForm);
 signUpFormClose.addEventListener("click", closeForm);
 loginFormClose.addEventListener("click", closeForm);
 chatForm.addEventListener("submit", submitChatForm);
+chatrooms.addEventListener("click", selectChatroom);

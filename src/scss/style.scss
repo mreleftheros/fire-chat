@@ -220,13 +220,14 @@
         &::after {
           content: "#";
           position: absolute;
-          left: 2%;
+          left: 1%;
           z-index: 3;
         }
 
         &__text {
           position: relative;
           z-index: 2;
+          pointer-events: none;
         }
 
         &::before {
@@ -240,7 +241,7 @@
           top: 0;
           left: 0;
           right: 0;
-          transform: translate(-10rem);
+          transform: translate(-15rem);
           transition: transform .3s ease-out;
         }
 

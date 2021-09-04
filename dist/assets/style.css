@@ -286,12 +286,13 @@ body {
 .main__chat__chatrooms__chatroom::after {
   content: "#";
   position: absolute;
-  left: 2%;
+  left: 1%;
   z-index: 3;
 }
 .main__chat__chatrooms__chatroom__text {
   position: relative;
   z-index: 2;
+  pointer-events: none;
 }
 .main__chat__chatrooms__chatroom::before {
   content: "";
@@ -304,7 +305,7 @@ body {
   top: 0;
   left: 0;
   right: 0;
-  transform: translate(-10rem);
+  transform: translate(-15rem);
   transition: transform 0.3s ease-out;
 }
 .main__chat__chatrooms__chatroom:hover:not(.select)::before {
