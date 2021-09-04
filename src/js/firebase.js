@@ -1,5 +1,5 @@
 import { initializeApp } from "firebase/app";
-import { getFirestore, collection, addDoc, Timestamp } from "firebase/firestore";
+import { getFirestore, collection, addDoc, Timestamp, onSnapshot, query, where } from "firebase/firestore";
 import { getAuth, onAuthStateChanged, createUserWithEmailAndPassword, signInWithEmailAndPassword, signOut, updateProfile } from "firebase/auth";
 
 const firebaseApp = initializeApp({
@@ -40,6 +40,7 @@ const logoutUser = async () => {
 
 // FIRESTORE
 
+// function that takes parameters from the chatForm and adds new object to the database
 const addMessage = async (name, chatroom, message) => {
   let time = Timestamp.fromDate(new Date());
   await addDoc(collection(db, "messages"), {
@@ -50,5 +51,9 @@ const addMessage = async (name, chatroom, message) => {
   })
     .catch(err => console.log(err));
 };
+
+// const getMessages = () => {
+//   const unsub = onSnapshot()
+// }
 
 export { auth, onAuthStateChanged, signUpUser, loginUser, logoutUser, updateProfile, addMessage };

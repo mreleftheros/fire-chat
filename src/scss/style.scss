@@ -200,6 +200,10 @@
       display: flex;
       justify-content: space-around;
 
+      &__chatroom.select {
+        background: #00daab;
+      }
+
       &__chatroom {
         background: #00c3ff;
         display: block;
@@ -211,6 +215,14 @@
         cursor: pointer;
         position: relative;
         overflow: hidden;
+        font-size: 2rem;
+
+        &::after {
+          content: "#";
+          position: absolute;
+          left: 2%;
+          z-index: 3;
+        }
 
         &__text {
           position: relative;
@@ -232,7 +244,7 @@
           transition: transform .3s ease-out;
         }
 
-        &:hover::before {
+        &:hover:not(.select)::before {
           transform: translate(0);
         }
       }
