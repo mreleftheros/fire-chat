@@ -59,6 +59,9 @@ const submitSignUpForm = async e => {
       e.currentTarget.reset();
       closeForm(e);
     })
+    .catch(err => {
+      console.log(err);
+    })
 };
 
 // function that submits login form

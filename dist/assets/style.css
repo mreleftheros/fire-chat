@@ -95,12 +95,11 @@ body {
 
 .header {
   min-height: 15vh;
+  background: #8000ff;
 }
 .header__nav {
   display: flex;
-  height: 100%;
   position: relative;
-  background: #8000ff;
 }
 .header__nav__logo-container {
   padding: 1rem 0;
@@ -246,21 +245,43 @@ body {
 
 .main {
   min-height: 80vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  width: 100%;
+  margin: 0 auto;
+  max-width: 120rem;
+  background: #f3f2f2;
 }
-.main__cta {
+.main__chat.open {
   display: flex;
+}
+.main__chat {
+  display: none;
   flex-direction: column;
-  font-size: 2.5rem;
-  letter-spacing: 0.1rem;
-  text-transform: capitalize;
 }
-@media only screen and (min-width: 768px) {
-  .main__cta {
-    font-size: 4rem;
-  }
+.main__chat__chatrooms {
+  padding: 0.5rem;
+  flex: 1;
+  width: 100%;
+  max-width: 50rem;
+  margin: auto;
+  display: flex;
+  justify-content: space-around;
+}
+.main__chat__chatrooms__chatroom {
+  background: #00c3ff;
+  display: block;
+  padding: 0.5rem 1.5rem;
+  border-radius: 1rem;
+  border: none;
+  color: #fff;
+  text-shadow: 1px 1px 3px #000;
+  cursor: pointer;
+  transition: transform 0.3s ease-in-out;
+}
+.main__chat__chatrooms__chatroom:hover {
+  transform: translateY(0.5rem);
+}
+.main__chat__chat-screen {
+  width: 100%;
 }
 
 .footer {

@@ -6,12 +6,11 @@
 // HEADER
 .header {
   min-height: 15vh;
+  background: #8000ff;
 
   &__nav {
     display: flex;
-    height: 100%;
     position: relative;
-    background: #8000ff;
     
     &__logo-container {
       padding: 1rem 0;
@@ -177,19 +176,49 @@
 // MAIN
 .main {
   min-height: 80vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  width: 100%;
+  margin: 0 auto;
+  max-width: 120rem;
+  background: rgb(243, 242, 242);
 
-  &__cta {
+  &__chat.open {
     display: flex;
-    flex-direction: column;
-    font-size: 2.5rem;
-    letter-spacing: .1rem;
-    text-transform: capitalize;
+  }
 
-    @include mq(768px) {
-      font-size: 4rem;
+  &__chat {
+    display: none;
+    flex-direction: column;
+    
+    // Chatrooms
+    &__chatrooms {
+      padding: .5rem;
+      flex: 1;
+      width: 100%;
+      max-width: 50rem;
+      margin: auto;
+      display: flex;
+      justify-content: space-around;
+
+      &__chatroom {
+        background: #00c3ff;
+        display: block;
+        padding: .5rem 1.5rem;
+        border-radius: 1rem;
+        border: none;
+        color: #fff;
+        text-shadow: 1px 1px 3px #000;
+        cursor: pointer;
+        transition: transform .3s ease-in-out;
+
+        &:hover {
+          transform: translateY(.5rem);
+        }
+      }
+    }
+
+    // Chat screen
+    &__chat-screen {
+      width: 100%;
     }
   }
 }

@@ -1,5 +1,5 @@
 import { initializeApp } from "firebase/app";
-import { getFirestore, collection, getDocs, getDoc, setDoc, doc } from "firebase/firestore";
+import { getFirestore, collection, getDocs, getDoc, addDoc, doc } from "firebase/firestore";
 import { getAuth, onAuthStateChanged, createUserWithEmailAndPassword, signInWithEmailAndPassword, signOut, updateProfile } from "firebase/auth";
 import { updateMenuUI, updateDisplayNameUI } from "./ui";
 
@@ -21,7 +21,7 @@ const checkAuthentication = () => {
     if (user) {
       console.log("auth:logged in.");
       updateMenuUI("login");
-      updateDisplayNameUI(user.displayName)
+      updateDisplayNameUI(user.displayName);
     } else {
       console.log("auth:logged out.");
       updateMenuUI("logout");
@@ -33,9 +33,9 @@ const checkAuthentication = () => {
 const signUpUser = async (email, password, displayName) => {
   createUserWithEmailAndPassword(auth, email, password)
     .then(cred => {
-      return updateProfile(auth.currentUser, {displayName: displayName})
+      return updateProfile(auth.currentUser, {displayName: displayName});
     })
-    .catch(err => console.log(err))
+    .catch(err => console.log(err));
 };
 
 // function that takes email and password given and logins user
@@ -51,4 +51,4 @@ const logoutUser = async () => {
     .catch(err => console.log(err))
 };
 
-export { checkAuthentication, signUpUser, loginUser, logoutUser };
+export { checkAuthentication, signUpUser, loginUser, logoutUser, updateProfile };

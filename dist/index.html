@@ -76,7 +76,25 @@
 
   <!-- MAIN -->
   <main class="main">
-    <p class="main__cta">Login to start chatting</p>
+    <section class="main__chat">
+      <!-- Chatrooms -->
+      <div class="main__chat__chatrooms">
+        <button type="button" class="main__chat__chatrooms__chatroom">#general</button>
+        <button type="button" class="main__chat__chatrooms__chatroom">#gaming</button>
+        <button type="button" class="main__chat__chatrooms__chatroom">#love</button>
+        <button type="button" class="main__chat__chatrooms__chatroom">#movies</button>
+      </div>
+
+      <!-- Chat screen -->
+      <div class="main__chat__chat-screen">
+        <ul class="main__chat__chat-screen__list"></ul>
+        <form id="chatForm" class="main__chat__chat-screen__form" autocomplete="off">
+          <input type="text" placeholder="Enter your message..." name="message" id="message" class="main__chat__chat-screen__form__input">
+          <button type="submit" class="main__chat__chat-screen__form__button"></button>
+        </form>
+      </div>
+
+    </section>
   </main>
 
   <!-- FOOTER -->
