@@ -1,5 +1,5 @@
 import { initializeApp } from "firebase/app";
-import { getFirestore, collection, getDocs, getDoc, addDoc, doc } from "firebase/firestore";
+import { getFirestore, collection, addDoc } from "firebase/firestore";
 import { getAuth, onAuthStateChanged, createUserWithEmailAndPassword, signInWithEmailAndPassword, signOut, updateProfile } from "firebase/auth";
 import { updateMenuUI, updateDisplayNameUI } from "./ui";
 
@@ -14,6 +14,8 @@ const firebaseApp = initializeApp({
 });
 const db = getFirestore(firebaseApp);
 const auth = getAuth(firebaseApp);
+
+// AUTH
 
 // function that sets a real time listener for auth state change
 const checkAuthentication = () => {
@@ -50,5 +52,9 @@ const logoutUser = async () => {
   signOut(auth)
     .catch(err => console.log(err))
 };
+
+// FIRESTORE
+
+
 
 export { checkAuthentication, signUpUser, loginUser, logoutUser, updateProfile };

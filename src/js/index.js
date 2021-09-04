@@ -7,6 +7,7 @@ const signUpForm = document.getElementById("signUpForm");
 const loginForm = document.getElementById("loginForm");
 const signUpFormClose = document.getElementById("signUpFormClose");
 const loginFormClose = document.getElementById("loginFormClose");
+const chatForm = document.getElementById("chatForm");
 
 // function that calls initialized functions
 const init = () => {
@@ -78,6 +79,18 @@ const submitLoginForm = e => {
     })
 };
 
+const submitChatForm = e => {
+  e.preventDefault();
+
+  let message = e.currentTarget.message.value.trim();
+
+  if(message.length === 0) return; // check
+
+  addMessage(message)
+    .then(e.currentTarget.reset())
+    .catch(err => console.log(err));
+};
+
 // event listeners
 document.addEventListener("DOMContentLoaded", init);
 hamburger.addEventListener("click", toggleMenu);
@@ -86,3 +99,4 @@ signUpForm.addEventListener("submit", submitSignUpForm);
 loginForm.addEventListener("submit", submitLoginForm);
 signUpFormClose.addEventListener("click", closeForm);
 loginFormClose.addEventListener("click", closeForm);
+chatForm.addEventListener("submit", submitChatForm);
