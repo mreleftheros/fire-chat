@@ -267,6 +267,9 @@ body {
   display: flex;
   justify-content: space-around;
 }
+.main__chat__chatrooms__chatroom.select {
+  background: #00daab;
+}
 .main__chat__chatrooms__chatroom {
   background: #00c3ff;
   display: block;
@@ -278,6 +281,13 @@ body {
   cursor: pointer;
   position: relative;
   overflow: hidden;
+  font-size: 2rem;
+}
+.main__chat__chatrooms__chatroom::after {
+  content: "#";
+  position: absolute;
+  left: 2%;
+  z-index: 3;
 }
 .main__chat__chatrooms__chatroom__text {
   position: relative;
@@ -297,7 +307,7 @@ body {
   transform: translate(-10rem);
   transition: transform 0.3s ease-out;
 }
-.main__chat__chatrooms__chatroom:hover::before {
+.main__chat__chatrooms__chatroom:hover:not(.select)::before {
   transform: translate(0);
 }
 .main__chat__chat-screen {
