@@ -32,4 +32,14 @@ const updateDisplayNameUI = name => {
   displayName.innerHTML = `Logged in as: <span class="header__nav__menu__item__link__name">${name}</span>`;
 };
 
-export { updateMenuUI, updateDisplayNameUI };
+const updateChatUI = user => {
+  if (user === "login") {
+    main.classList.add("open");
+  }
+  else if (user === "logout") {
+    main.classList.remove('open');
+    main.innerHTML = `<span class="main__logout-message">You are currently logged out. Login to start chatting!</span>`;
+  }
+};
+
+export { updateMenuUI, updateDisplayNameUI, updateChatUI };

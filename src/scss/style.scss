@@ -175,15 +175,28 @@
 }
 
 // MAIN
+.main.open .main {
+  &__chat {
+    display: flex;
+  }
+}
+
 .main {
   min-height: 80vh;
   width: 100%;
   margin: 0 auto;
   max-width: 120rem;
   background: rgb(243, 242, 242);
+  position: relative;
 
-  &__chat.open {
-    display: flex;
+  &__logout-message {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: block;
+    font-size: 2rem;
+    text-align: center;
   }
 
   &__chat {

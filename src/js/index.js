@@ -1,5 +1,5 @@
 import { auth, onAuthStateChanged, signUpUser, loginUser, logoutUser, addMessage } from "./firebase";
-import { updateMenuUI, updateDisplayNameUI } from "./ui";
+import { updateMenuUI, updateDisplayNameUI, updateChatUI } from "./ui";
 
 // global variables
 const hamburger = document.getElementById("hamburger");
@@ -10,6 +10,7 @@ const signUpFormClose = document.getElementById("signUpFormClose");
 const loginFormClose = document.getElementById("loginFormClose");
 const chatForm = document.getElementById("chatForm");
 const chatrooms = document.getElementById("chatrooms");
+const main = document.getElementById("main");
 let selectedChatroom = "general";
 
 
@@ -20,9 +21,11 @@ const checkAuthentication = () => {
       console.log("auth:logged in.");
       updateMenuUI("login");
       updateDisplayNameUI(user.displayName);
+      updateChatUI("login");
     } else {
       console.log("auth:logged out.");
       updateMenuUI("logout");
+      updateChatUI("logout");
     }
   })
 };
@@ -113,6 +116,7 @@ const submitChatForm = e => {
     .catch(err => console.log(err));
 };
 
+// function that adds select class to the selected chatroom and puts its text value in selectedChatroom variable  
 const selectChatroom = e => {
   if (e.target.tagName !== "BUTTON") return; // check
 
