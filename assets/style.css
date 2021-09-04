@@ -192,7 +192,7 @@ body {
   color: white;
   text-shadow: 1px 1px 3px #000;
   font-size: 2rem;
-  transition: color 0.3s ease-in-out;
+  transition: color 0.2s ease-in-out;
 }
 .header__nav__menu__item__link:hover:not(#displayName) {
   color: #5200a5;
@@ -276,10 +276,29 @@ body {
   color: #fff;
   text-shadow: 1px 1px 3px #000;
   cursor: pointer;
-  transition: transform 0.3s ease-in-out;
+  position: relative;
+  overflow: hidden;
 }
-.main__chat__chatrooms__chatroom:hover {
-  transform: translateY(0.5rem);
+.main__chat__chatrooms__chatroom__text {
+  position: relative;
+  z-index: 2;
+}
+.main__chat__chatrooms__chatroom::before {
+  content: "";
+  display: block;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: rgba(255, 0, 0, 0.3);
+  border-radius: 1rem;
+  top: 0;
+  left: 0;
+  right: 0;
+  transform: translate(-10rem);
+  transition: transform 0.3s ease-out;
+}
+.main__chat__chatrooms__chatroom:hover::before {
+  transform: translate(0);
 }
 .main__chat__chat-screen {
   width: 100%;
