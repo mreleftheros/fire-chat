@@ -1,7 +1,6 @@
 import { initializeApp } from "firebase/app";
 import { getFirestore, collection, addDoc } from "firebase/firestore";
 import { getAuth, onAuthStateChanged, createUserWithEmailAndPassword, signInWithEmailAndPassword, signOut, updateProfile } from "firebase/auth";
-import { updateMenuUI, updateDisplayNameUI } from "./ui";
 
 const firebaseApp = initializeApp({
   apiKey: "AIzaSyDXTp9IAyK9WV8yc9pmHsCF1eh9iaBmIM0",
@@ -16,20 +15,6 @@ const db = getFirestore(firebaseApp);
 const auth = getAuth(firebaseApp);
 
 // AUTH
-
-// function that sets a real time listener for auth state change
-const checkAuthentication = () => {
-  onAuthStateChanged(auth, user => {
-    if (user) {
-      console.log("auth:logged in.");
-      updateMenuUI("login");
-      updateDisplayNameUI(user.displayName);
-    } else {
-      console.log("auth:logged out.");
-      updateMenuUI("logout");
-    }
-  })
-};
 
 // function that takes email and password given and creates new user
 const signUpUser = async (email, password, displayName) => {
@@ -55,6 +40,11 @@ const logoutUser = async () => {
 
 // FIRESTORE
 
+const addMessage = async message => {
+  console.log(auth.currentUser)
+  // addDoc(collection(db, "messages"), {
 
+  // })
+};
 
-export { checkAuthentication, signUpUser, loginUser, logoutUser, updateProfile };
+export { auth, onAuthStateChanged, signUpUser, loginUser, logoutUser, updateProfile, addMessage };

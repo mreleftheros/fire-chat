@@ -1,4 +1,5 @@
-import { checkAuthentication, signUpUser, loginUser, logoutUser } from "./firebase";
+import { auth, onAuthStateChanged, signUpUser, loginUser, logoutUser, addMessage } from "./firebase";
+import { updateMenuUI, updateDisplayNameUI } from "./ui";
 
 // global variables
 const hamburger = document.getElementById("hamburger");
@@ -9,7 +10,21 @@ const signUpFormClose = document.getElementById("signUpFormClose");
 const loginFormClose = document.getElementById("loginFormClose");
 const chatForm = document.getElementById("chatForm");
 
-// function that calls initialized functions
+// function that sets a real time listener for auth state change
+const checkAuthentication = () => {
+  onAuthStateChanged(auth, user => {
+    if (user) {
+      console.log("auth:logged in.");
+      updateMenuUI("login");
+      updateDisplayNameUI(user.displayName);
+    } else {
+      console.log("auth:logged out.");
+      updateMenuUI("logout");
+    }
+  })
+};
+
+// function that calls initialized functions when dom is ready
 const init = () => {
   checkAuthentication();
 };
@@ -45,7 +60,7 @@ const closeForm = e => {
   e.currentTarget.parentElement.classList.remove("open");
 };
 
-// function that submits sign up form
+// function that submits sign up form and creates new user with given credentials
 const submitSignUpForm = async e => {
   e.preventDefault();
 
@@ -65,7 +80,7 @@ const submitSignUpForm = async e => {
     })
 };
 
-// function that submits login form
+// function that submits login form and logins user with given credentials
 const submitLoginForm = e => {
   e.preventDefault();
 
@@ -79,6 +94,7 @@ const submitLoginForm = e => {
     })
 };
 
+// function that submits the chat form and adds the message to database
 const submitChatForm = e => {
   e.preventDefault();
 
