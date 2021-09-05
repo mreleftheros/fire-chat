@@ -204,7 +204,11 @@
   &__chat {
     display: none;
     flex-direction: column;
-    justify-content: start;
+    min-height: 85vh;
+
+    @include mq(768px) {
+      min-height: 80vh;
+    }
     
     // Chatrooms
     &__chatrooms {
@@ -262,16 +266,16 @@
 
     // Chat screen
     &__chat-screen {
+      flex-basis: 40rem;
       padding: .5rem;
       border-radius: .5rem;
-      flex-basis: 40rem;
       background: rgba(0, 0, 255, .5);
       width: 100%;
       max-width: 100rem;
       margin: auto;
+      overflow: scroll;
       display: flex;
       flex-direction: column;
-      overflow: scroll;
       
       &__list {
         padding: .5rem;
