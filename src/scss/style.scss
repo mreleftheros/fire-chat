@@ -185,6 +185,11 @@
   margin: 0 auto;
   max-width: 120rem;
   position: relative;
+  min-height: 85vh;
+
+  @include mq(768px) {
+    min-height: 80vh;
+  }
 
   &__logout-message {
     position: absolute;
@@ -197,15 +202,9 @@
   }
 
   &__chat {
-    min-height: 85vh;
     display: none;
     flex-direction: column;
     justify-content: start;
-    background: rgb(218, 218, 218);
-
-    @include mq(768px) {
-      min-height: 80vh;
-    }
     
     // Chatrooms
     &__chatrooms {

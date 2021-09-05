@@ -252,6 +252,12 @@ body {
   margin: 0 auto;
   max-width: 120rem;
   position: relative;
+  min-height: 85vh;
+}
+@media only screen and (min-width: 768px) {
+  .main {
+    min-height: 80vh;
+  }
 }
 .main__logout-message {
   position: absolute;
@@ -263,16 +269,9 @@ body {
   text-align: center;
 }
 .main__chat {
-  min-height: 85vh;
   display: none;
   flex-direction: column;
   justify-content: start;
-  background: #dadada;
-}
-@media only screen and (min-width: 768px) {
-  .main__chat {
-    min-height: 80vh;
-  }
 }
 .main__chat__chatrooms {
   flex: 1;
