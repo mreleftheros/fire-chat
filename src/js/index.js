@@ -108,7 +108,7 @@ const submitChatForm = e => {
 
   if(message.length === 0) return; // check
 
-  let chatroom = selectChatroom;
+  let chatroom = selectedChatroom;
   let name = auth.currentUser.displayName;
 
   addMessage(name, chatroom, message)
