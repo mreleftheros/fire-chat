@@ -209,7 +209,7 @@
     
     // Chatrooms
     &__chatrooms {
-      flex-basis: 5rem;
+      flex: 1;
       padding: .5rem;
       width: 100%;
       max-width: 50rem;
@@ -264,18 +264,30 @@
     // Chat screen
     &__chat-screen {
       padding: .5rem;
-      background: rgba(0, 0, 255, .5);
       border-radius: .5rem;
-      flex: 1;
+      flex-basis: 40rem;
+      background: rgba(0, 0, 255, .5);
       width: 100%;
       max-width: 60rem;
       margin: auto;
       display: flex;
       flex-direction: column;
-
+      overflow: scroll;
+      
       &__list {
+        padding: .5rem;
         flex: 5 1 90%;
         background: #fff;
+        list-style: none;
+
+        &__message {
+          font-size: 2rem;
+
+          &__name {
+            color: #8000ff;
+            font-weight: bold;
+          }
+        }
       }
 
       &__form {
@@ -293,7 +305,7 @@
         }
 
         &__button {
-          flex-basis: 5rem;
+          flex-basis: 10rem;
           border: none;
           background: #8000ff;
           cursor: pointer;

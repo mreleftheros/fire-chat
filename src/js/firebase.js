@@ -1,6 +1,7 @@
 import { initializeApp } from "firebase/app";
-import { getFirestore, collection, addDoc, Timestamp, onSnapshot, query, where } from "firebase/firestore";
+import { getFirestore, collection, addDoc, Timestamp, onSnapshot, query, where, orderBy } from "firebase/firestore";
 import { getAuth, onAuthStateChanged, createUserWithEmailAndPassword, signInWithEmailAndPassword, signOut, updateProfile } from "firebase/auth";
+import { renderMessagesUI } from "./ui";
 
 const firebaseApp = initializeApp({
   apiKey: "AIzaSyDXTp9IAyK9WV8yc9pmHsCF1eh9iaBmIM0",
@@ -54,7 +55,7 @@ const addMessage = async (name, chatroom, message) => {
 
 // function that queries the database for message objects with given chatroom as a property
 const getMessages = chatroom => {
-  onSnapshot(query(collection(db, "messages"), where("chatroom", "==", chatroom)), snapshot => {
+  onSnapshot(query(collection(db, "messages"), where("chatroom", "==", chatroom), orderBy("time")), snapshot => {
     renderMessagesUI(snapshot.docs);
   })
 };

@@ -1,5 +1,5 @@
 import { auth, onAuthStateChanged, signUpUser, loginUser, logoutUser, addMessage, getMessages } from "./firebase";
-import { updateMenuUI, updateDisplayNameUI, updateChatUI, renderMessagesUI } from "./ui";
+import { updateMenuUI, updateDisplayNameUI, updateChatUI } from "./ui";
 
 // global variables
 const hamburger = document.getElementById("hamburger");

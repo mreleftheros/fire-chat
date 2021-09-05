@@ -45,13 +45,24 @@ const updateChatUI = user => {
 
 // function that takes all docs from database and outputs them in the DOM
 const renderMessagesUI = docs => {
+  const chatList = document.getElementById("chatList");
+  chatList.innerHTML = "";
   const fragment = new DocumentFragment();
 
   docs.forEach(doc => {
     const liElement = document.createElement("LI");
 
-    liElement.className = ""
+    liElement.className = "main__chat__chat-screen__list__message";
+
+    liElement.innerHTML= `
+    <span class="main__chat__chat-screen__list__message__name">${doc.data().name}:</span>
+    <span class="main__chat__chat-screen__list__message__message">${doc.data().message}</span>
+    `;
+
+    fragment.appendChild(liElement);
   })
+
+  chatList.appendChild(fragment);
 };
 
 export { updateMenuUI, updateDisplayNameUI, updateChatUI, renderMessagesUI };
