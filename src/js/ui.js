@@ -43,4 +43,10 @@ const updateChatUI = user => {
   }
 };
 
+// const renderMessages = docs => {
+//   const fragment = new DocumentFragment();
+
+
+// };
+
 export { updateMenuUI, updateDisplayNameUI, updateChatUI };

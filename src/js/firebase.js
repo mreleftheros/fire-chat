@@ -54,7 +54,7 @@ const addMessage = async (name, chatroom, message) => {
 
 const getMessages = chatroom => {
   onSnapshot(query(collection(db, "messages"), where("chatroom", "==", chatroom)), snapshot => {
-    snapshot.forEach(doc => renderMessage(doc));
+    renderMessagesUI(snapshot.docs);
   })
 };
 
