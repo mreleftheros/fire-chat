@@ -119,7 +119,7 @@ const submitChatForm = e => {
 
 // function that adds select class to the selected chatroom and puts its text value in selectedChatroom variable  
 const selectChatroom = e => {
-  if (e.target.tagName !== "BUTTON") return; // check
+  if (e.target.tagName !== "BUTTON" || e.target.classList.contains("select")) return; // check
 
   for (let child of chatrooms.children) {
     if (child.classList.contains("select")) {
@@ -130,7 +130,8 @@ const selectChatroom = e => {
   selectedChatroom = e.target.innerText.slice(1);
   e.target.classList.add("select");
 
-  console.log(selectedChatroom)
+  // re-render UI with new messages from new chatroom
+  getMessages(selectedChatroom);
 };
 
 // event listeners

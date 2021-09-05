@@ -55,9 +55,11 @@ const addMessage = async (name, chatroom, message) => {
 
 // function that queries the database for message objects with given chatroom as a property
 const getMessages = chatroom => {
-  onSnapshot(query(collection(db, "messages"), where("chatroom", "==", chatroom), orderBy("time")), snapshot => {
+  const unsub = onSnapshot(query(collection(db, "messages"), where("chatroom", "==", chatroom), orderBy("time")), snapshot => {
     renderMessagesUI(snapshot.docs);
-  })
+  });
+
+  return unsub;
 };
 
 export { auth, onAuthStateChanged, signUpUser, loginUser, logoutUser, updateProfile, addMessage, getMessages };
