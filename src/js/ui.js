@@ -32,6 +32,7 @@ const updateDisplayNameUI = name => {
   displayName.innerHTML = `Logged in as: <span class="header__nav__menu__item__link__name">${name}</span>`;
 };
 
+// function that shows the chat screen or a message depending on if the user is logged in or logged out
 const updateChatUI = user => {
   if (user === "login") {
     main.classList.add("open");

@@ -52,8 +52,10 @@ const addMessage = async (name, chatroom, message) => {
     .catch(err => console.log(err));
 };
 
-// const getMessages = () => {
-//   const unsub = onSnapshot()
-// }
+const getMessages = chatroom => {
+  onSnapshot(query(collection(db, "messages"), where("chatroom", "==", chatroom)), snapshot => {
+    snapshot.forEach(doc => renderMessage(doc));
+  })
+};
 
-export { auth, onAuthStateChanged, signUpUser, loginUser, logoutUser, updateProfile, addMessage };
+export { auth, onAuthStateChanged, signUpUser, loginUser, logoutUser, updateProfile, addMessage, getMessages };

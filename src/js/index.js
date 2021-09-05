@@ -1,4 +1,4 @@
-import { auth, onAuthStateChanged, signUpUser, loginUser, logoutUser, addMessage } from "./firebase";
+import { auth, onAuthStateChanged, signUpUser, loginUser, logoutUser, addMessage, getMessages } from "./firebase";
 import { updateMenuUI, updateDisplayNameUI, updateChatUI } from "./ui";
 
 // global variables
@@ -22,6 +22,7 @@ const checkAuthentication = () => {
       updateMenuUI("login");
       updateDisplayNameUI(user.displayName);
       updateChatUI("login");
+      getMessages(selectedChatroom)
     } else {
       console.log("auth:logged out.");
       updateMenuUI("logout");
