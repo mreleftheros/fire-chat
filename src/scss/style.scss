@@ -268,7 +268,7 @@
       flex-basis: 40rem;
       background: rgba(0, 0, 255, .5);
       width: 100%;
-      max-width: 60rem;
+      max-width: 100rem;
       margin: auto;
       display: flex;
       flex-direction: column;
@@ -281,11 +281,27 @@
         list-style: none;
 
         &__message {
-          font-size: 2rem;
-
+          position: relative;
+          background: #e3f2ff;
+          margin-bottom: .5rem;
+          padding: .5rem;
+          border-radius: 1rem;
+          
           &__name {
+            font-size: 2rem;
             color: #8000ff;
             font-weight: bold;
+            margin-right: .5rem;
+          }
+
+          &__message {
+            font-size: 2rem;
+          }
+
+          &__time {
+            position: absolute;
+            left: 90%;
+            font-size: 2rem;
           }
         }
       }

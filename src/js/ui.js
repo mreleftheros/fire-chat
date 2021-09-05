@@ -51,12 +51,14 @@ const renderMessagesUI = docs => {
 
   docs.forEach(doc => {
     const liElement = document.createElement("LI");
+    let date = doc.data().time.toDate();
 
     liElement.className = "main__chat__chat-screen__list__message";
 
     liElement.innerHTML= `
     <span class="main__chat__chat-screen__list__message__name">${doc.data().name}:</span>
     <span class="main__chat__chat-screen__list__message__message">${doc.data().message}</span>
+    <span class="main__chat__chat-screen__list__message__time">${date.getHours()}:${date.getMinutes()}</span>
     `;
 
     fragment.appendChild(liElement);

@@ -327,7 +327,7 @@ body {
   flex-basis: 40rem;
   background: rgba(0, 0, 255, 0.5);
   width: 100%;
-  max-width: 60rem;
+  max-width: 100rem;
   margin: auto;
   display: flex;
   flex-direction: column;
@@ -340,11 +340,25 @@ body {
   list-style: none;
 }
 .main__chat__chat-screen__list__message {
-  font-size: 2rem;
+  position: relative;
+  background: #e3f2ff;
+  margin-bottom: 0.5rem;
+  padding: 0.5rem;
+  border-radius: 1rem;
 }
 .main__chat__chat-screen__list__message__name {
+  font-size: 2rem;
   color: #8000ff;
   font-weight: bold;
+  margin-right: 0.5rem;
+}
+.main__chat__chat-screen__list__message__message {
+  font-size: 2rem;
+}
+.main__chat__chat-screen__list__message__time {
+  position: absolute;
+  left: 90%;
+  font-size: 2rem;
 }
 .main__chat__chat-screen__form {
   flex-basis: 5rem;
