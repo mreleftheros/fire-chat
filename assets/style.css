@@ -271,7 +271,12 @@ body {
 .main__chat {
   display: none;
   flex-direction: column;
-  justify-content: start;
+  min-height: 85vh;
+}
+@media only screen and (min-width: 768px) {
+  .main__chat {
+    min-height: 80vh;
+  }
 }
 .main__chat__chatrooms {
   flex: 1;
@@ -321,16 +326,16 @@ body {
   transform: translate(0);
 }
 .main__chat__chat-screen {
+  flex-basis: 40rem;
   padding: 0.5rem;
   border-radius: 0.5rem;
-  flex-basis: 40rem;
   background: rgba(0, 0, 255, 0.5);
   width: 100%;
   max-width: 100rem;
   margin: auto;
+  overflow: scroll;
   display: flex;
   flex-direction: column;
-  overflow: scroll;
 }
 .main__chat__chat-screen__list {
   padding: 0.5rem;
