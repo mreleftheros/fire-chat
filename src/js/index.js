@@ -1,5 +1,5 @@
 import { auth, onAuthStateChanged, signUpUser, loginUser, logoutUser, addMessage, getMessages } from "./firebase";
-import { updateMenuUI, updateDisplayNameUI, updateChatUI } from "./ui";
+import { updateMenuUI, updateDisplayNameUI, updateChatUI, renderMessagesUI } from "./ui";
 
 // global variables
 const hamburger = document.getElementById("hamburger");
@@ -22,7 +22,7 @@ const checkAuthentication = () => {
       updateMenuUI("login");
       updateDisplayNameUI(user.displayName);
       updateChatUI("login");
-      getMessages(selectedChatroom)
+      getMessages(selectedChatroom);
     } else {
       console.log("auth:logged out.");
       updateMenuUI("logout");
@@ -127,8 +127,10 @@ const selectChatroom = e => {
     }
   }
 
-  selectedChatroom = e.target.innerText;
+  selectedChatroom = e.target.innerText.slice(1);
   e.target.classList.add("select");
+
+  console.log(selectedChatroom)
 };
 
 // event listeners
