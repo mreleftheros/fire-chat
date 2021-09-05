@@ -52,6 +52,7 @@ const addMessage = async (name, chatroom, message) => {
     .catch(err => console.log(err));
 };
 
+// function that queries the database for message objects with given chatroom as a property
 const getMessages = chatroom => {
   onSnapshot(query(collection(db, "messages"), where("chatroom", "==", chatroom)), snapshot => {
     renderMessagesUI(snapshot.docs);

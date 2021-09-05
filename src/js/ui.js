@@ -43,10 +43,15 @@ const updateChatUI = user => {
   }
 };
 
-// const renderMessages = docs => {
-//   const fragment = new DocumentFragment();
+// function that takes all docs from database and outputs them in the DOM
+const renderMessagesUI = docs => {
+  const fragment = new DocumentFragment();
 
+  docs.forEach(doc => {
+    const liElement = document.createElement("LI");
 
-// };
+    liElement.className = ""
+  })
+};
 
-export { updateMenuUI, updateDisplayNameUI, updateChatUI };
+export { updateMenuUI, updateDisplayNameUI, updateChatUI, renderMessagesUI };
