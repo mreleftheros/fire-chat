@@ -39,11 +39,12 @@ const updateDisplayNameUI = name => {
 // function that shows the chat screen or a message depending on if the user is logged in or logged out
 const updateChatUI = user => {
   if (user === "login") {
+    logoutMessage.classList.remove("open");
     main.classList.add("open");
   }
   else if (user === "logout") {
     main.classList.remove('open');
-    main.innerHTML = ``;
+    logoutMessage.classList.add("open");
   }
 };
 
