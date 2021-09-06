@@ -17,13 +17,11 @@ let selectedChatroom = "general";
 const checkAuthentication = () => {
   onAuthStateChanged(auth, user => {
     if (user) {
-      console.log("auth:logged in.");
       updateMenuUI("login");
       updateDisplayNameUI(user.displayName);
       updateChatUI("login");
       getMessages(selectedChatroom);
     } else {
-      console.log("auth:logged out.");
       updateMenuUI("logout");
       updateChatUI("logout");
     }

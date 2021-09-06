@@ -21,9 +21,11 @@ const auth = getAuth(firebaseApp);
 const signUpUser = async (email, password, displayName) => {
   createUserWithEmailAndPassword(auth, email, password)
     .then(cred => {
-      return updateProfile(auth.currentUser, {displayName: displayName});
+      return updateProfile(auth.currentUser, {displayName});
     })
     .catch(err => console.log(err));
+
+    setTimeout(() => location.reload(), 500); // temporary fix updating displayNameUI
 };
 
 // function that takes email and password given and logins user
