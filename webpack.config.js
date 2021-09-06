@@ -4,8 +4,8 @@ module.exports = {
   entry: ['babel-regenerator-runtime', './src/js/index.js'],
   output: {
     path: path.resolve(__dirname, "dist"),
-    publicPath: "/assets/",
-    filename: "./bundle.js"
+    // publicPath: "/assets/",
+    filename: "./assets/bundle.js"
   },
   devServer: {
     static: {
