@@ -10,9 +10,7 @@ const signUpFormClose = document.getElementById("signUpFormClose");
 const loginFormClose = document.getElementById("loginFormClose");
 const chatForm = document.getElementById("chatForm");
 const chatrooms = document.getElementById("chatrooms");
-const main = document.getElementById("main");
 let selectedChatroom = "general";
-let unsub;
 
 
 // function that sets a real time listener for auth state change

@@ -1,3 +1,7 @@
+const chatList = document.getElementById("chatList");
+const main = document.getElementById("main");
+const logoutMessage = document.getElementById("logoutMessage");
+
 // function that updates the menu items displayed depending on if the user is logged in or logged out
 const updateMenuUI = loginState => {
   const menu = document.getElementById("menu");
@@ -39,13 +43,12 @@ const updateChatUI = user => {
   }
   else if (user === "logout") {
     main.classList.remove('open');
-    main.innerHTML = `<span class="main__logout-message">You are currently logged out. Login to start chatting!</span>`;
+    main.innerHTML = ``;
   }
 };
 
 // function that takes all docs from database and outputs them in the DOM
 const renderMessagesUI = docs => {
-  const chatList = document.getElementById("chatList");
   chatList.innerHTML = "";
   const fragment = new DocumentFragment();
 

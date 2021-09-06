@@ -259,12 +259,15 @@ body {
     min-height: 80vh;
   }
 }
+.main__logout-message.open {
+  display: block;
+}
 .main__logout-message {
   position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  display: block;
+  display: none;
   font-size: 2rem;
   text-align: center;
 }
