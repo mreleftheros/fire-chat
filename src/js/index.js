@@ -1,5 +1,5 @@
 import { auth, onAuthStateChanged, signUpUser, loginUser, logoutUser, addMessage, getMessages } from "./firebase";
-import { updateMenuUI, updateDisplayNameUI, updateChatUI } from "./ui";
+import { updateMenuUI, updateChatUI, updateDisplayNameUI } from "./ui";
 
 // global variables
 const hamburger = document.getElementById("hamburger");
@@ -18,8 +18,8 @@ const checkAuthentication = () => {
   onAuthStateChanged(auth, user => {
     if (user) {
       updateMenuUI("login");
-      updateDisplayNameUI(user.displayName);
       updateChatUI("login");
+      updateDisplayNameUI(user.displayName);
       getMessages(selectedChatroom);
     } else {
       updateMenuUI("logout");

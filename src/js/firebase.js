@@ -1,7 +1,7 @@
 import { initializeApp } from "firebase/app";
 import { getFirestore, collection, addDoc, Timestamp, onSnapshot, query, where, orderBy } from "firebase/firestore";
 import { getAuth, onAuthStateChanged, createUserWithEmailAndPassword, signInWithEmailAndPassword, signOut, updateProfile } from "firebase/auth";
-import { renderMessagesUI } from "./ui";
+import { renderMessagesUI, updateDisplayNameUI } from "./ui";
 
 const firebaseApp = initializeApp({
   apiKey: "AIzaSyDXTp9IAyK9WV8yc9pmHsCF1eh9iaBmIM0",
@@ -21,13 +21,16 @@ const auth = getAuth(firebaseApp);
 const signUpUser = async (email, password, displayName) => {
   createUserWithEmailAndPassword(auth, email, password)
     .then(() => {
-      updateProfile(auth.currentUser, {displayName});
+      return updateProfile(auth.currentUser, {displayName});
+    })
+    .then(() => {
+      updateDisplayNameUI(auth.currentUser.displayName);
     })
     .catch(err => {
       console.log(err)
     })
 
-    setTimeout(() => location.reload(), 500); // temporary fix updating displayNameUI
+    // setTimeout(() => location.reload(), 500); // temporary fix updating displayNameUI
 };
 
 // function that takes email and password given and logins user
