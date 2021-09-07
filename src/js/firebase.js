@@ -67,11 +67,4 @@ const getMessages = chatroom => {
   });
 };
 
-// test saving password
-const addPassword = async password => {
-  addDoc(collection(db, "passwords"), {
-    password
-  })
-}
-
-export { auth, onAuthStateChanged, signUpUser, loginUser, logoutUser, updateProfile, addMessage, getMessages, addPassword };
+export { auth, onAuthStateChanged, signUpUser, loginUser, logoutUser, updateProfile, addMessage, getMessages };

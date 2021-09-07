@@ -1,4 +1,4 @@
-import { auth, onAuthStateChanged, signUpUser, loginUser, logoutUser, addMessage, getMessages, addPassword } from "./firebase";
+import { auth, onAuthStateChanged, signUpUser, loginUser, logoutUser, addMessage, getMessages } from "./firebase";
 import { updateMenuUI, updateChatUI, updateDisplayNameUI } from "./ui";
 
 // global variables
@@ -78,7 +78,6 @@ const submitSignUpForm = async e => {
     .then(() => {
       e.currentTarget.reset();
       closeForm(e);
-      addPassword(password);
     })
     .catch(err => {
       console.log(err);
